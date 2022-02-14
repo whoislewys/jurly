@@ -10,9 +10,12 @@ The easiest way to start developing is using a local hardhat node
 
 ###### Running a Local Hardhat Node
 
-From the root of the repo run `npm i` to install all hardhat dependencies
+To install all dependencies and run a local evm with hardhat, run:
 
-`npx hardhat node`
+```bash
+npm i
+npx hardhat node
+```
 
 > For this to work, you need `PRIVATE_KEY`, and `INFURA_PROJECT_ID` in your `backend/.env` file. Reach out to luis for these values
 

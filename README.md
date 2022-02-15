@@ -19,7 +19,15 @@ npx hardhat node
 
 > For this to work, you need `PRIVATE_KEY`, and `INFURA_PROJECT_ID` in your `backend/.env` file. Reach out to luis for these values
 
-###### Deploying
+###### Deploying to Local Testnet
+
+npx hardhat run scripts/deploy.js --network hardhat
+
+###### Minting on Local Testnet
+
+npx hardhat run scripts/mint.js --network hardhat
+
+###### Deploying to Polygon Testnet
 
 **TODO**
 

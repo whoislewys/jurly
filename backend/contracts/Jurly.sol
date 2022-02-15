@@ -32,9 +32,11 @@ contract Jurly is ERC721, Ownable {
   }
   
   function mint(address recipient, string memory uri)
-    public
+    public payable
     returns (uint256)
   {
+    require(msg.value == 1e17, "0.1E required to mint");
+
     _tokenIds.increment();
     uint256 newItemId = _tokenIds.current();
     _mint(recipient, newItemId);

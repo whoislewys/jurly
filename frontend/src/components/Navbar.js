@@ -8,6 +8,7 @@ import {
 } from "@material-ui/core";
 import { Link } from "react-router-dom";
 import WalletButton from "../components/WalletButton";
+import useWeb3Modal from "../hooks/useWeb3Modal";
 
 const useStyles = makeStyles((theme) => ({
   appbar: {
@@ -35,6 +36,8 @@ const useStyles = makeStyles((theme) => ({
 
 function Navbar() {
   const classes = useStyles();
+  const [provider, loadWeb3Modal, logoutOfWeb3Modal] = useWeb3Modal();
+  // console.log('[Navbar] provider: ', provider)
 
   return (
     <AppBar className={classes.appbar} position="static">
@@ -51,7 +54,8 @@ function Navbar() {
             About
           </Link>
         </div>
-        <WalletButton />
+        <WalletButton provider={provider} loadWeb3Modal={loadWeb3Modal} logoutOfWeb3Modal={logoutOfWeb3Modal} />
+
       </Toolbar>
     </AppBar>
   );

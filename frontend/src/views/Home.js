@@ -2,10 +2,10 @@ import React from "react";
 import MintButton from "../components/MintButton";
 import MerchListing from "../components/MerchListing";
 
-const Home = () => {
+const Home = ({ provider }) => {
   return (
     <div>
-      <MintButton/>
+      <MintButton provider={provider}/>
       <MerchListing/>
     </div>
   )

@@ -3,7 +3,7 @@ import ReactDOM from "react-dom";
 import "./index.css";
 import App from "./App";
 import { BrowserRouter } from "react-router-dom";
-import { DAppProvider } from '@usedapp/core'
+import { DAppProvider } from "@usedapp/core";
 
 ReactDOM.render(
   <BrowserRouter>
@@ -13,3 +13,4 @@ ReactDOM.render(
   </BrowserRouter>,
   document.getElementById("root")
 );
+

@@ -7,13 +7,13 @@ function WalletButton() {
   const { activateBrowserWallet, account } = useEthers()
 
   const truncatedAccount = () => {
-    return `${account.substring(0,4)}...${account.substring(-4,4)}`
+    return `${account.substring(0,4)}...${account.substring(account.length - 4)}`
   }
 
   return (
     <div>
-      {!account && <Button onClick={activateBrowserWallet}> Connect </Button>}
-      {account && <p>{truncatedAccount()}</p>} 
+      {!account && <Button variant="outlined" onClick={activateBrowserWallet}> Connect </Button>}
+      {account && <Button variant="outlined">{truncatedAccount()}</Button>} 
     </div>
   )
 }

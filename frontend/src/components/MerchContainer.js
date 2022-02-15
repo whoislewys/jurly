@@ -12,7 +12,7 @@ import StockJewelry from "../stock-jewelry.png"
 const useStyles = makeStyles((theme) => ({
   merchContainer: {
     maxWidth: "30%",
-    minWidth: "250px",
+    minWidth: "230px",
     height: "70%",
     margin: "10px"
   },

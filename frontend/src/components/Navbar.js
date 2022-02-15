@@ -7,6 +7,7 @@ import {
   makeStyles,
 } from "@material-ui/core";
 import { Link } from "react-router-dom";
+import WalletButton from "../components/WalletButton";
 
 const useStyles = makeStyles((theme) => ({
   appbar: {
@@ -26,8 +27,8 @@ const useStyles = makeStyles((theme) => ({
     fontSize: "20px",
     marginLeft: theme.spacing(20),
     // "&:hover": {
-      // color: "yellow",
-      // borderBottom: "1px solid white",
+    // color: "yellow",
+    // borderBottom: "1px solid white",
     // },
   },
 }));
@@ -50,6 +51,7 @@ function Navbar() {
             About
           </Link>
         </div>
+        <WalletButton />
       </Toolbar>
     </AppBar>
   );

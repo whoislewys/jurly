@@ -1,7 +1,12 @@
 import React from "react";
+import WalletButton from "../components/walletButton";
 
 const Home = () => {
-  return <div>Home</div>;
+  return (
+  <div><WalletButton/></div>
+  
+
+  )
 };
 
 export default Home;

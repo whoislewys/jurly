@@ -38,15 +38,16 @@ function WalletButton({ provider, loadWeb3Modal, logoutOfWeb3Modal }) {
         setAccount(accounts[0]);
 
         // Resolve the ENS name for the first account.
-        // const name = await provider.lookupAddress(accounts[0]);
-        setRendered(accounts[0].substring(0,6) + '...' + account.substring(36));
+        let name = account.substring(0, 6) + "..." + account.substring(36);
+        try {
+          name = await provider.lookupAddress(accounts[0]);
+        } catch (e) {
+          console.error("Error looking up ENS name for address");
+          // console.error("Error looking up ENS name for address: ", e);
+        }
 
         // Render either the ENS name or the shortened account address.
-        // if (name) {
-        //   setRendered(accounts[0]);
-        // } else {
-        //   setRendered(account.substring(0, 6) + "..." + account.substring(36));
-        // }
+        setRendered(name);
       } catch (err) {
         setAccount("");
         setRendered("");

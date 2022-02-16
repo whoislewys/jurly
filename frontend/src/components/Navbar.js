@@ -12,7 +12,7 @@ import useWeb3Modal from "../hooks/useWeb3Modal";
 
 const useStyles = makeStyles((theme) => ({
   appbar: {
-    backgroundColor: "black",
+    backgroundColor: "#161522",
   },
   navlinks: {
     marginLeft: theme.spacing(10),
@@ -44,16 +44,16 @@ function Navbar() {
       <CssBaseline />
       <Toolbar>
         <Typography variant="h4" className={classes.logo}>
-          J
+          g3m
         </Typography>
-        <div className={classes.navlinks}>
+        {/* <div className={classes.navlinks}>
           <Link to="/" className={classes.link}>
             Home
           </Link>
           <Link to="/about" className={classes.link}>
             About
           </Link>
-        </div>
+        </div> */}
         <WalletButton provider={provider} loadWeb3Modal={loadWeb3Modal} logoutOfWeb3Modal={logoutOfWeb3Modal} />
 
       </Toolbar>

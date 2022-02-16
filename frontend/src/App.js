@@ -15,9 +15,9 @@ function App() {
   const [provider, loadWeb3Modal, logoutOfWeb3Modal] = useWeb3Modal();
 
   return (
-    <div className="App">
-      {desktop && <Navbar/>}
-      {!desktop && <DrawerMenu/>}
+    <div className="App" style={{ backgroundColor: '#14091E', height: '100vh' }}>
+      <Navbar/>
+      {/* {!desktop && <DrawerMenu/>} */}
       {/* <Routes>
         <Route path="/" element={<Home provider={provider} />} />
         <Route path="about" element={<About />} />

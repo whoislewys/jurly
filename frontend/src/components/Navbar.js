@@ -44,16 +44,16 @@ function Navbar() {
       <CssBaseline />
       <Toolbar>
         <Typography variant="h4" className={classes.logo}>
-          g3m
+          G3M
         </Typography>
-        {/* <div className={classes.navlinks}>
+        <div className={classes.navlinks}>
           <Link to="/" className={classes.link}>
-            Home
+            Mint
           </Link>
           <Link to="/about" className={classes.link}>
             About
           </Link>
-        </div> */}
+        </div>
         <WalletButton provider={provider} loadWeb3Modal={loadWeb3Modal} logoutOfWeb3Modal={logoutOfWeb3Modal} />
 
       </Toolbar>

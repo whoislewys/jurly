@@ -67,7 +67,7 @@ function WalletButton({ provider, loadWeb3Modal, logoutOfWeb3Modal }) {
         }
       }}
     >
-      {rendered === "" && "Connect Wallet"}
+      {rendered === "" && "Connect"}
       {rendered !== "" && rendered}
     </Button>
   );

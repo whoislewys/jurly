@@ -1,14 +1,17 @@
 const hre = require("hardhat");
 
 async function main() {
-  console.log(`Deploying Jurly NFT contract to: ${hre.network}`);
+  console.log('Deploying Digital NFT contract');
+  const ClippyDigitalFactory = await hre.ethers.getContractFactory("ClippyDigital");
+  const clippyDigital = await ClippyDigitalFactory.deploy();
+  await clippyDigital.deployed();
+  console.log("NFT digital contract deployed to:", clippyDigital.address);
 
-  const NFT = await hre.ethers.getContractFactory("Jurly");
-  const nft = await NFT.deploy();
-  await nft.deployed();
-  [owner] = await ethers.getSigners();
-
-  console.log("NFT deployed to:", nft.address);
+  console.log(`Deploying Phygital NFT contract to network: ${hre.network}`);
+  const ClippyPhygitalFactory = await hre.ethers.getContractFactory("ClippyPhygital");
+  const clippyPhygital = await ClippyPhygitalFactory.deploy(clippyDigital.address);
+  await clippyPhygital.deployed();
+  console.log("NFT phygital contract deployed to:", clippyPhygital.address);
 }
 
 main().then(() => process.exit(0)).catch(error => {

@@ -79,7 +79,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-function MerchListing() {
+function Redeem({provider}) {
   const classes = useStyles();
   const isDesktop = useMediaQuery("(min-width:768px)");
 
@@ -134,7 +134,6 @@ function MerchListing() {
             <Typography
               variant="h4"
               className={classes.header}
-              color="#7F7F7F"
               gutterBottom
             >
               Claim your Jewelry
@@ -166,11 +165,11 @@ function MerchListing() {
             // disabled={!formValid}
             size="small"
           >Redeem</Button>
-          <MintButton/>
+          <MintButton provider={provider}/>
         </CardActions>
       </Card>
     </div>
   );
 }
 
-export default MerchListing;
+export default Redeem;

@@ -22,7 +22,7 @@ function App() {
         <Route path="/" element={<Home provider={provider} />} />
         <Route path="about" element={<About />} />
       </Routes> */}
-      <Redeem/>
+      <Redeem provider={provider}/>
     </div>
   );
 }

@@ -12,6 +12,7 @@ import {
 import Autocomplete from "react-google-autocomplete";
 import { GOOGLE_API_KEY } from "../env"
 import { margin } from "@mui/system";
+import MintButton from "./MintButton";
 
 const useStyles = makeStyles((theme) => ({
   desktopRedeem: {
@@ -130,6 +131,7 @@ function MerchListing() {
             disabled={!formValid} 
             size="small"
           >Redeem</Button>
+          <MintButton/>
         </CardActions>
       </Card>
     </div>

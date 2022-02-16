@@ -4,7 +4,7 @@ import {
   Toolbar,
   CssBaseline,
   Typography,
-  makeStyles,
+  makeStyles
 } from "@material-ui/core";
 import { Link } from "react-router-dom";
 import WalletButton from "../components/WalletButton";
@@ -16,6 +16,7 @@ const useStyles = makeStyles((theme) => ({
   },
   navlinks: {
     marginLeft: theme.spacing(10),
+    marginRight: theme.spacing(10),
     display: "flex",
   },
   logo: {
@@ -26,7 +27,7 @@ const useStyles = makeStyles((theme) => ({
     textDecoration: "none",
     color: "white",
     fontSize: "20px",
-    marginLeft: theme.spacing(20),
+    marginLeft: theme.spacing(5),
     // "&:hover": {
     // color: "yellow",
     // borderBottom: "1px solid white",
@@ -37,7 +38,6 @@ const useStyles = makeStyles((theme) => ({
 function Navbar() {
   const classes = useStyles();
   const [provider, loadWeb3Modal, logoutOfWeb3Modal] = useWeb3Modal();
-  // console.log('[Navbar] provider: ', provider)
 
   return (
     <AppBar className={classes.appbar} position="static">

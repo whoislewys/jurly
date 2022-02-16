@@ -23,6 +23,7 @@
     "solidity-coverage": "^0.7.19"
   },
   "dependencies": {
-    "@openzeppelin/contracts": "^4.5.0"
+    "@openzeppelin/contracts": "^4.5.0",
+    "mui-places-autocomplete-v2": "0.0.1"
   }
 }

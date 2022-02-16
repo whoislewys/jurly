@@ -2,7 +2,8 @@ import Button from "@mui/material/Button";
 import { Contract } from "ethers";
 import { ethers } from "ethers";
 import React, { useEffect, useState } from "react";
-import * as JurlyABI from "../ABIs/Jurly.json";
+// import * as JurlyABI from "../ABIs/Jurly.json";
+import * as ClippyPhygitalABI from "../ABIs/ClippyPhygital.json";
 
 function MintButton({ provider }) {
   // const [provider, loadWeb3Modal, logoutOfWeb3Modal] = useWeb3Modal();
@@ -21,7 +22,7 @@ function MintButton({ provider }) {
       setSigner(signer);
 
       const contractAddress = "0x5FbDB2315678afecb367f032d93F642f64180aa3";
-      const contract = new Contract(contractAddress, JurlyABI.abi, signer);
+      const contract = new Contract(contractAddress, ClippyPhygitalABI.abi, signer);
       console.log("Contract: ", contract);
       setContract(contract);
     };

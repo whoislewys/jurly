@@ -10,7 +10,7 @@ contract Jurly is ERC721, Ownable {
   Counters.Counter private _tokenIds;
   mapping (uint256 => string) private _tokenURIs;
   
-  constructor() ERC721("Jurly", "JNFT") {}
+  constructor() ERC721("Jurly", "JURL") {}
 
   function _setTokenURI(uint256 tokenId, string memory _tokenURI)
     internal
@@ -35,7 +35,9 @@ contract Jurly is ERC721, Ownable {
     public payable
     returns (uint256)
   {
+    require(_tokenIds.current() <= 4200, "Only 4200 of this piece can be created");
     require(msg.value == 1e17, "0.1E required to mint");
+    require(balanceOf(msg.sender) <= 5, "You can only mint a max of 5 of this piece");
 
     _tokenIds.increment();
     uint256 newItemId = _tokenIds.current();

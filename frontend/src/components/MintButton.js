@@ -1,3 +1,5 @@
+import { Typography } from "@material-ui/core";
+import { badgeUnstyledClasses } from "@mui/base";
 import Button from "@mui/material/Button";
 import { Contract } from "ethers";
 import { ethers } from "ethers";
@@ -9,6 +11,7 @@ function MintButton({ provider }) {
   // const [provider, loadWeb3Modal, logoutOfWeb3Modal] = useWeb3Modal();
   const [signer, setSigner] = useState("");
   const [contract, setContract] = useState(null);
+  const [bal, setBal] = useState(null);
 
   useEffect(() => {
     if (provider == null) {
@@ -25,12 +28,32 @@ function MintButton({ provider }) {
       const contract = new Contract(contractAddress, ClippyPhygitalABI.abi, signer);
       console.log("Contract: ", contract);
       setContract(contract);
+
+      console.log('wtf');
+      const balTx = await contract.balanceOf(signer._address);
+      const balresp = await balTx.wait();
+      console.warn('balresp :', balresp);
+      setBal(balresp);
     };
     init();
 
-    console.log("signer: ", signer);
   }, [provider]);
 
+
+  // const bal = async () => {
+  //   if (contract == null || signer == null) {
+  //     return;
+  //   }
+
+  //   console.log(1, signer._address)
+  //   console.log(2, contract)
+  //   console.warn('callin balanceof:');
+  //   const balTx = await contract.balanceOf(signer._address);
+  //   const balresp = await balTx.wait();
+  //   console.warn('balresp :', balresp);
+  //   return balresp
+  // } 
+  
   const mint = async () => {
     if (contract == null || signer == null) {
       return;
@@ -42,6 +65,8 @@ function MintButton({ provider }) {
     console.log("mint tx: ", mintTx);
     const mintResp = await mintTx.wait();
     console.log("mintResp: ", mintResp);
+    // const bal =  await contract.balanceOf(signer._address);
+    // console.log(33, bal)
   };
 
   return (
@@ -49,7 +74,9 @@ function MintButton({ provider }) {
       <Button variant="outlined" onClick={mint}>
         {" "}
         Mint for 0.1 ETH{" "}
+        {/* `bal: ${bal()}` */}
       </Button>
+      <Typography>{bal}</Typography>
     </div>
   );
 }

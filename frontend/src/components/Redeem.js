@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react'
 import {
   Card,
   makeStyles,
@@ -9,120 +9,118 @@ import {
   Typography,
   Button,
   TextField,
-} from "@material-ui/core";
-import { margin } from "@mui/system";
-import MintButton from "./MintButton";
-import Autocomplete, {usePlacesWidget} from "react-google-autocomplete";
-import { GOOGLE_API_KEY } from "../env";
+} from '@material-ui/core'
+import { margin } from '@mui/system'
+import MintButton from './MintButton'
+import Autocomplete, { usePlacesWidget } from 'react-google-autocomplete'
+import { GOOGLE_API_KEY } from '../env'
 
 const useStyles = makeStyles((theme) => ({
   header: {
-    color: "white",
+    color: 'white',
   },
   desktopRedeem: {
     height: 500,
     width: 500,
     borderRadius: 14,
-    backgroundColor: "#202231",
+    backgroundColor: '#202231',
   },
   mobileRedeem: {
     height: 500,
-    width: "80%",
+    width: '80%',
     borderRadius: 14,
-    backgroundColor: "#202231",
+    backgroundColor: '#202231',
   },
   mobileButton: {
-    width: "85%",
+    width: '85%',
     borderRadius: 14,
     height: 35,
     marginTop: 10,
-    backgroundColor: "#161522",
-    borderColor: "#2e3348",
-    borderWidth: "1px",
-    color: "white",
+    backgroundColor: '#161522',
+    borderColor: '#2e3348',
+    borderWidth: '1px',
+    color: 'white',
   },
   desktopButton: {
     width: 300,
     borderRadius: 14,
     height: 35,
     marginTop: 10,
-    backgroundColor: "green",
-    borderColor: "#2e3348",
-    borderWidth: "1px",
+    backgroundColor: 'green',
+    borderColor: '#2e3348',
+    borderWidth: '1px',
   },
   redeemContainer: {
-    width: "100%",
-    height: "90vh",
-    display: "flex",
-    justifyContent: "center",
-    alignItems: "center",
+    width: '100%',
+    height: '90vh',
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   cardActions: {
-    display: "flex",
-    justifyContent: "center",
-    padding: "5%",
+    display: 'flex',
+    justifyContent: 'center',
+    padding: '5%',
   },
   content: {
-    display: "flex",
-    flexDirection: "column",
-    alignItems: "center",
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
   },
-  input: {
-    // color: "white",
-    // backgroundColor: "black",
+  textField: {
     width: '60%',
     marginTop: theme.spacing(2),
   },
   redeemButton: {
-    backgroundColor: "black",
-    color: "white",
+    backgroundColor: 'black',
+    color: 'white',
   },
-}));
+}))
 
-function Redeem({provider}) {
-  const classes = useStyles();
-  const isDesktop = useMediaQuery("(min-width:768px)");
+function Redeem({ provider }) {
+  const classes = useStyles()
+  const isDesktop = useMediaQuery('(min-width:768px)')
 
-  const [email, setEmail] = React.useState("");
-  const [address, setAddress] = React.useState("");
-  const [country, setCountry] = React.useState("us");
-  const [formValid, setFormValid] = React.useState(false);
+  const [email, setEmail] = React.useState('')
+  const [address, setAddress] = React.useState('')
+  const [country, setCountry] = React.useState('us')
+  const [formValid, setFormValid] = React.useState(false)
 
   const { ref: materialRef } = usePlacesWidget({
     apiKey: GOOGLE_API_KEY,
     onPlaceSelected: (place) => console.log(place),
-    inputAutocompleteValue: "country",
+    inputAutocompleteValue: 'country',
     options: {
       componentRestrictions: { country },
       types: ['address'],
     },
-  });
+  })
 
   const setFormvalid = () => {
     if (address.length > 0 && emailValid()) {
-      setFormValid(true);
+      setFormValid(true)
     } else {
-      setFormValid(false);
+      setFormValid(false)
     }
-  };
+  }
 
   const emailValid = () => {
     return email
       .toLowerCase()
       .match(
-        /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
-      );
-  };
+        /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
+      )
+  }
 
   const handleEmailInput = (e) => {
-    setEmail(e.target.value);
-    setFormvalid();
-  };
+    setEmail(e.target.value)
+    setFormvalid()
+  }
 
   const handleAddressInput = (place) => {
-    setAddress(place.formatted_address);
-    setFormvalid();
-  };
+    setAddress(place.formatted_address)
+    setFormvalid()
+  }
 
   return (
     <div className={classes.redeemContainer}>
@@ -131,29 +129,24 @@ function Redeem({provider}) {
       >
         <CardContent className={classes.content}>
           <div>
-            <Typography
-              variant="h4"
-              className={classes.header}
-              gutterBottom
-            >
+            <Typography variant='h4' className={classes.header} gutterBottom>
               Claim your Jewelry
             </Typography>
           </div>
 
           <TextField
-            className={classes.input}
+            className={classes.textField}
             fullWidth
-            color="secondary"
-            variant="outlined"
+            color='secondary'
+            variant='outlined'
             inputRef={materialRef}
           />
 
-          {/*TODO: make styling not look poopoo*/}
           <TextField
-            className={classes.input}
-            id="outlined-basic"
-            label="Email"
-            variant="outlined"
+            className={classes.textField}
+            id='outlined-basic'
+            label='Email'
+            variant='outlined'
             value={email}
             onChange={(e) => handleEmailInput(e)}
           />
@@ -161,15 +154,17 @@ function Redeem({provider}) {
         <CardActions className={classes.cardActions}>
           <Button
             className={classes.redeemButton}
-            variant="outlined"
+            variant='outlined'
             // disabled={!formValid}
-            size="small"
-          >Redeem</Button>
-          <MintButton provider={provider}/>
+            size='small'
+          >
+            Redeem
+          </Button>
+          <MintButton provider={provider} />
         </CardActions>
       </Card>
     </div>
-  );
+  )
 }
 
-export default Redeem;
+export default Redeem

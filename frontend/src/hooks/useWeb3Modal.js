@@ -7,7 +7,6 @@ import { INFURA_PROJECT_ID } from "../env";
 // Enter a valid infura key here to avoid being rate limited
 // You can get a key for free at https://infura.io/register
 const INFURA_ID = INFURA_PROJECT_ID;
-console.log('infura id: ', INFURA_PROJECT_ID);
 
 const NETWORK = "https://localhost:8545";
 
@@ -39,7 +38,7 @@ function useWeb3Modal(config = {}) {
     // const newProvider = new ethers.providers.JsonRpcProvider('http://localhost:8545');
 
     const web3prov = new ethers.providers.Web3Provider(newProvider);
-    // console.log('web3prov: ', web3prov);
+    console.log('web3prov: ', web3prov);
 
     setProvider(web3prov);
   }, [web3Modal]);

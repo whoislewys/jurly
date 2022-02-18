@@ -27,12 +27,19 @@ const PRIVATE_KEY = process.env.PRIVATE_KEY;
 const INFURA_PROJECT_ID = process.env.INFURA_PROJECT_ID;
 module.exports = {
   solidity: "0.8.8",
+  defaultNetwork: "hardhat",
   networks: {
+    hardhat: {
+      chainId: 1337,
+    },
+    //   chainId: 31337,
+    //   accounts: [PRIVATE_KEY],
+    // },
     // hardhat: {
-      // forking: {
-      //   url: `https://polygon-mainnet.infura.io/v3/${INFURA_PROJECT_ID}`,
-      //   accounts: PRIVATE_KEY,
-      // },
+    // forking: {
+    //   url: `https://polygon-mainnet.infura.io/v3/${INFURA_PROJECT_ID}`,
+    //   accounts: [PRIVATE_KEY],
+    // },
     // },
     polygon_mumbai: {
       url: `https://polygon-mumbai.infura.io/v3/${INFURA_PROJECT_ID}`,

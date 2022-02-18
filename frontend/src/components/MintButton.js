@@ -20,7 +20,7 @@ function MintButton({ provider }) {
       const signer = await provider.getSigner(accounts[0])
       setSigner(signer)
 
-      const contractAddress = '0x2279B7A0a67DB372996a5FaB50D91eAA73d2eBe6'
+      const contractAddress = '0xCf7Ed3AccA5a467e9e704C703E8D87F634fB0Fc9'
       const contract = new Contract(
         contractAddress,
         ClippyPhygitalABI.abi,
@@ -55,7 +55,7 @@ function MintButton({ provider }) {
       <Button variant='outlined' onClick={mint}>
         Mint for 0.1 ETH
       </Button>
-      <p>Balance: {bal}</p>
+      {/* <p>Balance: {bal}</p> */}
     </div>
   )
 }

@@ -13,6 +13,7 @@ The easiest way to start developing is using a local hardhat node
 To install all dependencies and run a local evm with hardhat, run:
 
 ```bash
+cd backend
 npm i
 npx hardhat node
 ```
@@ -33,11 +34,11 @@ To connect to this with Metamask, make sure your node is running. Then,
 
 ###### Deploying to Local Testnet
 
-npx hardhat run scripts/deploy.js --network hardhat
+npx hardhat run scripts/deploy.js --network localhost
 
 ###### Minting on Local Testnet
 
-npx hardhat run scripts/mint.js --network hardhat
+npx hardhat run scripts/mint.js --network localhost
 
 ###### Deploying to Polygon Testnet
 

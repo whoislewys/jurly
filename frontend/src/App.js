@@ -14,6 +14,8 @@ function App() {
 
   const [provider, loadWeb3Modal, logoutOfWeb3Modal] = useWeb3Modal();
 
+  console.log('[app] provider: ', provider);
+
   return (
     <div className="App" style={{ backgroundColor: '#14091E', height: '100vh' }}>
       <Navbar/>

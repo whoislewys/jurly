@@ -11,25 +11,21 @@ function MintButton({ provider }) {
   const [bal, setBal] = useState(null)
 
   useEffect(() => {
-    console.log('useeffect')
-    console.log('provider: ', provider)
     if (provider == null) {
       return
     }
-    console.log('provider not null: ', provider)
+
     const init = async () => {
       const accounts = await provider.listAccounts()
       const signer = await provider.getSigner(accounts[0])
       setSigner(signer)
 
-      console.log('getting contract:')
       const contractAddress = '0x2279B7A0a67DB372996a5FaB50D91eAA73d2eBe6'
       const contract = new Contract(
         contractAddress,
         ClippyPhygitalABI.abi,
         signer,
       )
-      console.log('Contract: ', contract)
       setContract(contract)
 
       const balTx = await contract.balanceOf(await signer.getAddress())

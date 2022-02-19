@@ -7,6 +7,7 @@ const Home = () => {
 
   return (
     <Box sx={{ padding: "0 20%", display: "flex", flexDirection: "column" }}>
+      <p>Home</p>
     </Box>
   );
 };

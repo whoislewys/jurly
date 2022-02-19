@@ -1,4 +1,4 @@
-import { createTheme, CssBaseline, ThemeProvider } from "@mui/material";
+import { Box, createTheme, CssBaseline, ThemeProvider } from "@mui/material";
 import { Contract } from "ethers";
 import React, { useEffect, useState } from "react";
 import ClippyDigitalABI from "./ABIs/ClippyDigital.json";
@@ -88,7 +88,14 @@ function App() {
           loadWeb3Modal={loadWeb3Modal}
           logoutOfWeb3Modal={logoutOfWeb3Modal}
         />
-        <img src={require("./assets/hero1.png")} style={{ width: "100vw" }} />
+        <Box backgroundColor='black' display='flex' justifyContent='center' alignItems='center'>
+          <img
+            src={require("./assets/hero1.jpg")}
+            style={{
+              width: '95%',
+            }}
+          />
+        </Box>
         <HomeScreen provider={provider} />
         <MintScreen provider={provider} />
         <RedeemScreen
@@ -101,3 +108,4 @@ function App() {
 }
 
 export default App;
+

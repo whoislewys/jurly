@@ -107,7 +107,7 @@ function Redeem({ digitalContractt, ownedTokenIds }) {
     }
 
     return (
-      <FormControl sx={{ marginTop: theme.spacing(2), width: "75%" }}>
+      <FormControl sx={{ width: "100%" }}>
         <InputLabel id="demo-simple-select-label">NFT to Redeem</InputLabel>
         <Select
           labelId="demo-simple-select-label"
@@ -182,12 +182,6 @@ function Redeem({ digitalContractt, ownedTokenIds }) {
             value={email}
             onChange={(e) => handleEmailInput(e)}
           />
-
-
-
-          <Typography variant="h4" sx={{ marginTop: theme.spacing(2) }}>
-            Redeem
-          </Typography>
           <Box
             className={classes.textField}
           >

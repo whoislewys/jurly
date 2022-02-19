@@ -1,4 +1,5 @@
-import { Typography } from "@mui/material";
+import { useTheme } from "@emotion/react";
+import { Button, Typography } from "@mui/material";
 import { Contract } from "ethers";
 import React, { useEffect, useState } from "react";
 import ClippyDigitalABI from "./ABIs/ClippyDigital.json";
@@ -7,6 +8,7 @@ import MintButton from "./components/MintButton";
 
 const Home = ({ provider }) => {
   const [balance, setBalance] = useState("");
+  const theme = useTheme();
 
   useEffect(() => {
     if (provider == null) {
@@ -22,7 +24,9 @@ const Home = ({ provider }) => {
         ClippyPhygitalABI.abi,
         signer
       );
-      const phygitalBalance = await phygitalContract.balanceOf(await signer.getAddress());
+      const phygitalBalance = await phygitalContract.balanceOf(
+        await signer.getAddress()
+      );
       console.log("phygital balance: ", phygitalBalance.toString());
       setBalance(phygitalBalance.toString());
 
@@ -40,11 +44,18 @@ const Home = ({ provider }) => {
     getBalance();
   }, [provider]);
 
+  const burn = () => {
+    alert('burn');
+  }
+
   return (
     <div>
-      <p>home</p>
+      <p>Home</p>
       <MintButton provider={provider} />
-      <Typography>Balance: {balance}</Typography>
+      <Button variant="outlined" sx={{ marginTop: theme.spacing(2) }} onClick={burn}>
+        Burn
+      </Button>
+      <Typography sx={{ marginTop: theme.spacing(2) }}>Phygital Balance: {balance}</Typography>
     </div>
   );
 };

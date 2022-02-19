@@ -1,6 +1,7 @@
 import { createTheme, ThemeProvider, CssBaseline } from "@mui/material";
 import React from "react";
 import "./App.css";
+import ContentCard from "./components/ContentCard";
 import Navbar from "./components/Navbar";
 import Home from "./Home";
 import useWeb3Modal from "./hooks/useWeb3Modal";
@@ -25,6 +26,7 @@ function App() {
           loadWeb3Modal={loadWeb3Modal}
           logoutOfWeb3Modal={logoutOfWeb3Modal}
         />
+        <ContentCard />
         <Home provider={provider} />
       </ThemeProvider>
     </div>
@@ -32,4 +34,3 @@ function App() {
 }
 
 export default App;
-

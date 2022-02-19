@@ -1,5 +1,6 @@
 import { useTheme } from "@emotion/react";
 import {
+  Box,
   Button,
   FormControl,
   InputLabel,
@@ -37,8 +38,7 @@ const Home = ({ provider }) => {
       const phygitalBalance = await phygitalContract.balanceOf(
         await signer.getAddress()
       );
-      console.log("phygital balance: ", phygitalBalance.toString());
-      setBalance(phygitalBalance.toString());
+      console.log("phygital balance: ", phygitalBalance);
 
       const digitalContractAddr = "0xB7f8BC63BbcaD18155201308C8f3540b07f84F5e";
       const digitalContract = new Contract(
@@ -50,7 +50,7 @@ const Home = ({ provider }) => {
       const digitalBalance = await digitalContract.balanceOf(
         await signer.getAddress()
       );
-      console.log("digital balance: ", digitalBalance.toString());
+      setBalance(digitalBalance.toString());
 
       const ownedTokenIdss = [];
       for (let i = 0; i < digitalBalance; i++) {
@@ -70,10 +70,7 @@ const Home = ({ provider }) => {
   }, [provider]);
 
   const burn = async () => {
-    console.log("burn");
-    const tokenId = "1";
-    console.log("digicont: ", digitalContractt);
-    const burnTx = await digitalContractt.burn(tokenId);
+    const burnTx = await digitalContractt.burn(activeTokenId);
     console.log("burntx: ", burnTx);
   };
 
@@ -83,13 +80,13 @@ const Home = ({ provider }) => {
     }
 
     return (
-      <FormControl fullWidth>
-        <InputLabel id="demo-simple-select-label">Owned NFTs</InputLabel>
+      <FormControl sx={{ marginTop: theme.spacing(2), width: "75%" }}>
+        <InputLabel id="demo-simple-select-label">NFT to Redeem</InputLabel>
         <Select
           labelId="demo-simple-select-label"
           id="demo-simple-select"
           value={activeTokenId === -1 ? "" : activeTokenId}
-          label="Owned NFTs"
+          label="NFT to Redeem"
           onChange={(e) => setActiveTokenId(e.target.value)}
         >
           {ownedTokenIds.map((id) => {
@@ -105,21 +102,29 @@ const Home = ({ provider }) => {
   };
 
   return (
-    <div>
-      <p>Home</p>
+    <Box sx={{ padding: "0 20%", display: "flex", flexDirection: "column" }}>
+      <Typography variant="h4">Mint</Typography>
       <MintButton provider={provider} />
-      <Button
-        variant="outlined"
-        sx={{ marginTop: theme.spacing(2) }}
-        onClick={burn}
-      >
-        Burn
-      </Button>
-      <Typography sx={{ marginTop: theme.spacing(2) }}>
-        Phygital Balance: {balance}
+      <Typography variant="h4" sx={{ marginTop: theme.spacing(2) }}>
+        Redeem
       </Typography>
-      <NftIdSelector />
-    </div>
+      <Box
+        sx={{
+          display: "flex",
+          flexDirection: "row",
+          justifyContent: "space-between",
+        }}
+      >
+        <NftIdSelector />
+        <Button
+          variant="outlined"
+          sx={{ marginTop: theme.spacing(2), width: "15%" }}
+          onClick={burn}
+        >
+          Redeem
+        </Button>
+      </Box>
+    </Box>
   );
 };
 

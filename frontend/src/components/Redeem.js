@@ -1,18 +1,21 @@
 import React from 'react'
+import { useTheme } from "@emotion/react"
 import {
   Card,
   useMediaQuery,
   CardActions,
   CardContent,
-  Input,
+  Box,
   Typography,
   Button,
+  FormControl,
   TextField,
+  MenuItem,
+  Select,
+  InputLabel
 } from "@mui/material"
 import { makeStyles } from '@mui/styles'
-import { margin } from '@mui/system'
-import MintButton from './MintButton'
-import Autocomplete, { usePlacesWidget } from 'react-google-autocomplete'
+import { usePlacesWidget } from 'react-google-autocomplete'
 import { GOOGLE_API_KEY } from '../env'
 
 const useStyles = makeStyles((theme) => ({
@@ -77,7 +80,8 @@ const useStyles = makeStyles((theme) => ({
   },
 }))
 
-function Redeem({ provider }) {
+function Redeem({ digitalContractt, ownedTokenIds }) {
+  const theme = useTheme();
   const classes = useStyles()
   const isDesktop = useMediaQuery('(min-width:768px)')
 
@@ -85,6 +89,7 @@ function Redeem({ provider }) {
   const [address, setAddress] = React.useState('')
   const [country, setCountry] = React.useState('us')
   const [formValid, setFormValid] = React.useState(false)
+  const [activeTokenId, setActiveTokenId] = React.useState(-1)
 
   const { ref: materialRef } = usePlacesWidget({
     apiKey: GOOGLE_API_KEY,
@@ -95,6 +100,38 @@ function Redeem({ provider }) {
       types: ['address'],
     },
   })
+
+  const NftIdSelector = () => {
+    if (ownedTokenIds === null) {
+      return <></>;
+    }
+
+    return (
+      <FormControl sx={{ marginTop: theme.spacing(2), width: "75%" }}>
+        <InputLabel id="demo-simple-select-label">NFT to Redeem</InputLabel>
+        <Select
+          labelId="demo-simple-select-label"
+          id="demo-simple-select"
+          value={activeTokenId === -1 ? "" : activeTokenId}
+          label="NFT to Redeem"
+          onChange={(e) => setActiveTokenId(e.target.value)}
+        >
+          {ownedTokenIds.map((id) => {
+            return (
+              <MenuItem value={id} key={id}>
+                {id}
+              </MenuItem>
+            );
+          })}
+        </Select>
+      </FormControl>
+    );
+  };
+
+  const burn = async () => {
+    const burnTx = await digitalContractt.burn(activeTokenId);
+    console.log("burntx: ", burnTx);
+  };
 
   const setFormvalid = () => {
     if (address.length > 0 && emailValid()) {
@@ -114,11 +151,6 @@ function Redeem({ provider }) {
 
   const handleEmailInput = (e) => {
     setEmail(e.target.value)
-    setFormvalid()
-  }
-
-  const handleAddressInput = (place) => {
-    setAddress(place.formatted_address)
     setFormvalid()
   }
 
@@ -150,17 +182,28 @@ function Redeem({ provider }) {
             value={email}
             onChange={(e) => handleEmailInput(e)}
           />
+
+
+
+          <Typography variant="h4" sx={{ marginTop: theme.spacing(2) }}>
+            Redeem
+          </Typography>
+          <Box
+            className={classes.textField}
+          >
+            <NftIdSelector />
+          </Box>
+
+
+
+
         </CardContent>
         <CardActions className={classes.cardActions}>
           <Button
-            className={classes.redeemButton}
-            variant='outlined'
-            // disabled={!formValid}
-            size='small'
-          >
-            Redeem
-          </Button>
-          <MintButton provider={provider} />
+              variant="outlined"
+              sx={{ marginTop: theme.spacing(2), width: "15%" }}
+              onClick={burn}
+          >Redeem</Button>
         </CardActions>
       </Card>
     </div>

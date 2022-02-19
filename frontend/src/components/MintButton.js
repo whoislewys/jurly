@@ -19,7 +19,7 @@ function MintButton({ provider }) {
       const signer = await provider.getSigner(accounts[0]);
       setSigner(signer);
 
-      const contractAddress = "0x2279B7A0a67DB372996a5FaB50D91eAA73d2eBe6";
+      const contractAddress = "0xA51c1fc2f0D1a1b8494Ed1FE312d7C3a78Ed91C0";
       const contract = new Contract(
         contractAddress,
         ClippyPhygitalABI.abi,

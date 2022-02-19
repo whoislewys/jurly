@@ -10,20 +10,35 @@ export default function ButtonAppBar() {
   const [provider, loadWeb3Modal, logoutOfWeb3Modal] = useWeb3Modal();
 
   return (
-    <Box sx={{ flexGrow: 1 }}>
-      <AppBar position="static">
-        <Toolbar sx={{ flexDirection: "row", justifyContent: "space-between" }}>
-          <Typography variant="h6" component="div">
-            G3M
-          </Typography>
-          <div>
-            <WalletButton
-              provider={provider}
-              loadWeb3Modal={loadWeb3Modal}
-              logoutOfWeb3Modal={logoutOfWeb3Modal}
-            />
-          </div>
-        </Toolbar>
+    <Box backgroundColor='#000000'>
+      <AppBar position="static" sx={{ backgroundColor: "#000000", 
+        backgroundImage: ''
+        }}>
+        <Box
+          display="flex"
+          flexDirection="column"
+          alignSelf="center"
+          alignItems="stretch"
+          width='75%'
+        >
+          <Toolbar
+            sx={{
+              flexDirection: "row",
+              justifyContent: "space-between",
+            }}
+          >
+            <Typography variant="h6" component="div">
+              G3M
+            </Typography>
+            <div>
+              <WalletButton
+                provider={provider}
+                loadWeb3Modal={loadWeb3Modal}
+                logoutOfWeb3Modal={logoutOfWeb3Modal}
+              />
+            </div>
+          </Toolbar>
+        </Box>
       </AppBar>
     </Box>
   );

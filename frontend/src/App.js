@@ -3,9 +3,9 @@ import React from "react";
 import "./App.css";
 import Navbar from "./components/Navbar";
 import useWeb3Modal from "./hooks/useWeb3Modal";
-import RedeemScreen from "./components/RedeemScreen"
-import MintScreen from "./components/MintScreen"
-import HomeScreen from "./components/HomeScreen"
+import RedeemScreen from "./components/RedeemScreen";
+import MintScreen from "./components/MintScreen";
+import HomeScreen from "./components/HomeScreen";
 
 function App() {
   const [provider, loadWeb3Modal, logoutOfWeb3Modal] = useWeb3Modal();
@@ -13,6 +13,13 @@ function App() {
   const theme = createTheme({
     palette: {
       mode: "dark",
+      primary: {
+        main: "#E4595C",
+      },
+      alternateTextColor: 'black',
+      secondary: {
+        main: "#ffffff",
+      },
     },
   });
 
@@ -27,9 +34,10 @@ function App() {
           loadWeb3Modal={loadWeb3Modal}
           logoutOfWeb3Modal={logoutOfWeb3Modal}
         />
-        <HomeScreen provider={provider}/>
-        <MintScreen/>
-        <RedeemScreen/>
+        <img src={require("./assets/hero1.png")} style={{ width: "100vw" }} />
+        <HomeScreen provider={provider} />
+        <MintScreen />
+        <RedeemScreen />
       </ThemeProvider>
     </div>
   );

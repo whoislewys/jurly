@@ -1,14 +1,14 @@
-import { createTheme, ThemeProvider, CssBaseline } from "@mui/material";
+import { createTheme, CssBaseline, ThemeProvider } from "@mui/material";
+import { Contract } from "ethers";
 import React, { useEffect, useState } from "react";
-import "./App.css";
-import Navbar from "./components/Navbar";
-import useWeb3Modal from "./hooks/useWeb3Modal";
-import RedeemScreen from "./components/RedeemScreen"
-import MintScreen from "./components/MintScreen"
-import HomeScreen from "./components/HomeScreen"
 import ClippyDigitalABI from "./ABIs/ClippyDigital.json";
 import ClippyPhygitalABI from "./ABIs/ClippyPhygital.json";
-import { Contract } from "ethers";
+import "./App.css";
+import HomeScreen from "./components/HomeScreen";
+import MintScreen from "./components/MintScreen";
+import Navbar from "./components/Navbar";
+import RedeemScreen from "./components/RedeemScreen";
+import useWeb3Modal from "./hooks/useWeb3Modal";
 
 function App() {
   const [balance, setBalance] = useState("");
@@ -19,6 +19,13 @@ function App() {
   const theme = createTheme({
     palette: {
       mode: "dark",
+      primary: {
+        main: "#E4595C",
+      },
+      alternateTextColor: "black",
+      secondary: {
+        main: "#ffffff",
+      },
     },
   });
 
@@ -81,13 +88,16 @@ function App() {
           loadWeb3Modal={loadWeb3Modal}
           logoutOfWeb3Modal={logoutOfWeb3Modal}
         />
-        <HomeScreen provider={provider}/>
-        <MintScreen provider={provider}/>
-        <RedeemScreen digitalContractt={digitalContractt} ownedTokenIds={ownedTokenIds}/>
+        <img src={require("./assets/hero1.png")} style={{ width: "100vw" }} />
+        <HomeScreen provider={provider} />
+        <MintScreen provider={provider} />
+        <RedeemScreen
+          digitalContractt={digitalContractt}
+          ownedTokenIds={ownedTokenIds}
+        />
       </ThemeProvider>
     </div>
   );
 }
 
 export default App;
-

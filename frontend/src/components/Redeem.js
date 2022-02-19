@@ -1,7 +1,6 @@
 import React from 'react'
 import {
   Card,
-  makeStyles,
   useMediaQuery,
   CardActions,
   CardContent,
@@ -9,7 +8,8 @@ import {
   Typography,
   Button,
   TextField,
-} from '@material-ui/core'
+} from "@mui/material"
+import { makeStyles } from '@mui/styles'
 import { margin } from '@mui/system'
 import MintButton from './MintButton'
 import Autocomplete, { usePlacesWidget } from 'react-google-autocomplete'

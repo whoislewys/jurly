@@ -1,6 +1,7 @@
 import React from 'react'
 import MerchContainer from './MerchContainer'
-import { makeStyles, useMediaQuery } from '@material-ui/core'
+import { useMediaQuery } from '@mui/material'
+import { makeStyles } from '@mui/styles'
 
 const useStyles = makeStyles((theme) => ({
   desktop: {

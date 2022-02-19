@@ -2,8 +2,10 @@ import { createTheme, ThemeProvider, CssBaseline } from "@mui/material";
 import React from "react";
 import "./App.css";
 import Navbar from "./components/Navbar";
-import Home from "./Home";
 import useWeb3Modal from "./hooks/useWeb3Modal";
+import RedeemScreen from "./components/RedeemScreen"
+import MintScreen from "./components/MintScreen"
+import HomeScreen from "./components/HomeScreen"
 
 function App() {
   const [provider, loadWeb3Modal, logoutOfWeb3Modal] = useWeb3Modal();
@@ -25,7 +27,9 @@ function App() {
           loadWeb3Modal={loadWeb3Modal}
           logoutOfWeb3Modal={logoutOfWeb3Modal}
         />
-        <Home provider={provider} />
+        <HomeScreen provider={provider}/>
+        <MintScreen/>
+        <RedeemScreen/>
       </ThemeProvider>
     </div>
   );

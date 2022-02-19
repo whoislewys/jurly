@@ -5,8 +5,8 @@ import {
   Typography,
   CardActions,
   Button,
-  makeStyles,
-} from '@material-ui/core'
+} from '@mui/material'
+import { makeStyles } from '@mui/styles'
 import StockJewelry from '../stock-jewelry.png'
 
 const useStyles = makeStyles((theme) => ({

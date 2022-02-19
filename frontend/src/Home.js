@@ -13,6 +13,7 @@ import React, { useEffect, useState } from "react";
 import ClippyDigitalABI from "./ABIs/ClippyDigital.json";
 import ClippyPhygitalABI from "./ABIs/ClippyPhygital.json";
 import MintButton from "./components/MintButton";
+import Redeed from "./components/Redeem"
 
 const Home = ({ provider }) => {
   const [balance, setBalance] = useState("");
@@ -29,7 +30,7 @@ const Home = ({ provider }) => {
       const accounts = await provider.listAccounts();
       const signer = await provider.getSigner(accounts[0]);
 
-      const phygitalContractAddr = "0xA51c1fc2f0D1a1b8494Ed1FE312d7C3a78Ed91C0";
+      const phygitalContractAddr = "0xe7f1725E7734CE288F8367e1Bb143E90bb3F0512";
       const phygitalContract = new Contract(
         phygitalContractAddr,
         ClippyPhygitalABI.abi,
@@ -40,7 +41,7 @@ const Home = ({ provider }) => {
       );
       console.log("phygital balance: ", phygitalBalance);
 
-      const digitalContractAddr = "0xB7f8BC63BbcaD18155201308C8f3540b07f84F5e";
+      const digitalContractAddr = "0x5FbDB2315678afecb367f032d93F642f64180aa3";
       const digitalContract = new Contract(
         digitalContractAddr,
         ClippyDigitalABI.abi,

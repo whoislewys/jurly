@@ -1,7 +1,6 @@
 import * as React from 'react'
 import {
   Typography,
-  makeStyles,
   Box,
   Button,
   List,
@@ -9,7 +8,8 @@ import {
   ListItem,
   SwipeableDrawer,
   ListItemText,
-} from '@material-ui/core'
+} from '@mui/material'
+import { makeStyles } from '@mui/styles'
 import MenuIcon from '@mui/icons-material/Menu'
 import { Link } from 'react-router-dom'
 

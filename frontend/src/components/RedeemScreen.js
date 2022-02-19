@@ -1,5 +1,6 @@
 import { makeStyles } from '@mui/styles'
 import React from "react";
+import Redeem from './Redeem';
 
 const useStyles = makeStyles((theme) => ({
   redeemScreen: {
@@ -8,12 +9,12 @@ const useStyles = makeStyles((theme) => ({
   }
 }))
 
-const RedeemScreen = ({ provider }) => {
+const RedeemScreen = ({ digitalContractt, ownedTokenIds }) => {
   const classes = useStyles()
 
   return (
     <div className={ classes.redeemScreen }>
-        Redeem
+        <Redeem digitalContractt={digitalContractt} ownedTokenIds={ownedTokenIds}/>
     </div>
   );
 };

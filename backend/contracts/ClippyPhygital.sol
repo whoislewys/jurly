@@ -4,6 +4,15 @@ import "@openzeppelin/contracts/utils/Counters.sol";
 import "@openzeppelin/contracts/access/Ownable.sol";
 import "./ClippyDigital.sol";
 
+/*
+            ____ _____ __  __ 
+           / ___|___ /|  \/  |
+          | |  _  |_ \| |\/| |
+          | |_| |___) | |  | |
+           \____|____/|_|  |_|
+                    
+*/
+
 contract ClippyPhygital is ERC721, Ownable {
   using Counters for Counters.Counter;
   using Strings for uint256;

@@ -1,31 +1,42 @@
-import {Typography} from '@mui/material'
-import ClippyPhygitalABI from './ABIs/ClippyPhygital.json';
-import {Contract} from 'ethers';
-import React, {useEffect, useState} from 'react'
-import MintButton from './components/MintButton'
-
+import { Typography } from "@mui/material";
+import { Contract } from "ethers";
+import React, { useEffect, useState } from "react";
+import ClippyDigitalABI from "./ABIs/ClippyDigital.json";
+import ClippyPhygitalABI from "./ABIs/ClippyPhygital.json";
+import MintButton from "./components/MintButton";
 
 const Home = ({ provider }) => {
-  const [balance, setBalance] = useState('');
+  const [balance, setBalance] = useState("");
 
   useEffect(() => {
     if (provider == null) {
-      return
+      return;
     }
     const getBalance = async () => {
-      const accounts = await provider.listAccounts()
-      const signer = await provider.getSigner(accounts[0])
+      const accounts = await provider.listAccounts();
+      const signer = await provider.getSigner(accounts[0]);
 
-      const contractAddress = '0xCf7Ed3AccA5a467e9e704C703E8D87F634fB0Fc9'
-      const contract = new Contract(
-        contractAddress,
+      const phygitalContractAddr = "0x2279B7A0a67DB372996a5FaB50D91eAA73d2eBe6";
+      const phygitalContract = new Contract(
+        phygitalContractAddr,
         ClippyPhygitalABI.abi,
-        signer,
-      )
+        signer
+      );
+      const phygitalBalance = await phygitalContract.balanceOf(await signer.getAddress());
+      console.log("phygital balance: ", phygitalBalance.toString());
+      setBalance(phygitalBalance.toString());
 
-      const balTx = await contract.balanceOf(await signer.getAddress())
-      setBalance(balTx.toString())
-    }
+      const digitalContractAddr = "0xa513E6E4b8f2a923D98304ec87F64353C4D5C853";
+      const digitalContract = new Contract(
+        digitalContractAddr,
+        ClippyDigitalABI.abi,
+        signer
+      );
+      const digitalBalance = await digitalContract.balanceOf(
+        await signer.getAddress()
+      );
+      console.log("digital balance: ", digitalBalance.toString());
+    };
     getBalance();
   }, [provider]);
 
@@ -35,8 +46,7 @@ const Home = ({ provider }) => {
       <MintButton provider={provider} />
       <Typography>Balance: {balance}</Typography>
     </div>
-  )
-}
+  );
+};
 
-export default Home
-
+export default Home;

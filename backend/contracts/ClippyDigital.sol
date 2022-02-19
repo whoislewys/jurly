@@ -7,8 +7,9 @@ import "@openzeppelin/contracts/access/Ownable.sol";
 contract ClippyDigital is ERC721, Ownable {
   using Counters for Counters.Counter;
   using Strings for uint256;
+  address public clippyPhygitalAddress;
   Counters.Counter private _tokenIds;
-  mapping (uint256 => string) private _tokenURIs;
+  mapping (uint256 => string) private _tokenURIs; 
   
   constructor() ERC721("ClippyDigital", "CLIPD") {}
 
@@ -17,6 +18,12 @@ contract ClippyDigital is ERC721, Ownable {
     virtual
   {
     _tokenURIs[tokenId] = _tokenURI;
+  }
+
+  /// @notice Set Phygital Contract address, so that only the Phygital Contract can mint Digital NFTs
+  /// @param _clippyPhygitalAddress address of the ClippyPhygital contract
+  function setWhitelistMintAddress(address _clippyPhygitalAddress) external onlyOwner {
+    clippyPhygitalAddress = _clippyPhygitalAddress;
   }
 
   function tokenURI(uint256 tokenId) 
@@ -35,8 +42,8 @@ contract ClippyDigital is ERC721, Ownable {
     public payable
     returns (uint256)
   {
-    // TODO: find a robust way to do this. i guess make it external
-    // require(msg.sender == 0xe7f1725E7734CE288F8367e1Bb143E90bb3F0512, "Only Phygital contract can mint Digital NFTs");
+    require(clippyPhygitalAddress != address(0), "Clippy Phygital address must be set");
+    require(msg.sender == clippyPhygitalAddress, "Only Phygital contract can mint Digital NFTs");
 
     _tokenIds.increment();
     uint256 newItemId = _tokenIds.current();

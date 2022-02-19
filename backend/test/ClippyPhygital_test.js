@@ -41,7 +41,7 @@ describe('NFT', function () {
     // arrange
     const URI = 'ipfs://QmWJBNeQAm9Rh4YaW8GFRnSgwa4dN889VKm9poc2DQPBkv';
     const balbefore = await ClippyPhygital.balanceOf(addr1.address);
-    console.log('balb4: ', balbefore);
+    // console.log('balb4: ', balbefore);
 
     // act
     await ClippyPhygital.mint(addr1.address, URI, {

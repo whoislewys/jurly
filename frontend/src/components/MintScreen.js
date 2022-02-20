@@ -1,14 +1,13 @@
 import { makeStyles } from '@mui/styles'
-import {
-  Typography,
-} from "@mui/material";
-import React from "react";
-import MintButton from "../components/MintButton";
+import React from "react"
+import Mint from "../components/Mint"
 
 const useStyles = makeStyles((theme) => ({
   mintScreen: {
     height: "100vh",
-    backgroundColor: "purple"
+    // backgroundColor: "purple"
+    background: "rgb(188,36,255)",
+    background: "linear-gradient(90deg, rgba(188,36,255,1) 0%, rgba(0,255,100,1) 100%)",
   }
 }))
 
@@ -17,8 +16,7 @@ const MintScreen = ({ provider }) => {
 
   return (
     <div className={ classes.mintScreen }>
-      <Typography variant="h4">Mint</Typography>
-      <MintButton provider={provider} />
+      <Mint/>
     </div>
   );
 };

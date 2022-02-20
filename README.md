@@ -23,24 +23,22 @@ npx hardhat node
 To connect to this with Metamask, make sure your node is running. Then,
 
 1. Open your metamask browser extension and click the dropdown
+    <img width="1440" alt="metamask_walkthrough_1" src="https://user-images.githubusercontent.com/46409039/154831276-c9d6f4b7-1423-4b1c-b373-d649412d312c.png">
 
-    ![image](https://user-images.githubusercontent.com/25728778/153986498-060f1427-b190-4e06-80d9-11503de506f5.png)
-        
-2. Scroll down to the bottom and click "Add Network"
-    ![image](https://user-images.githubusercontent.com/25728778/153986712-95356a91-ff68-472c-9e4f-2c12873e0d7d.png)
+2. Make sure test networks are being shown
+    <img width="1440" alt="metamask_walkthrough_2" src="https://user-images.githubusercontent.com/46409039/154831290-e64893ce-3a02-4dee-80d0-7c2ff9786e43.png">
 
-3. For "Network Name", enter something like "Hardhat Local". For "New RPC URL", enter "http://127.0.0:8545", for "Chain ID" enter "31337", for "Currency Symbol" enter "MATIC", and click "Save"
-
+3.If test networks are not being shown, set "show test networks" to "on"
+    <img width="1440" alt="metamask_walkthrough_3" src="https://user-images.githubusercontent.com/46409039/154831305-fe2069bb-0b6e-4e99-88ff-fd08b40291ea.png">
+    
+4. Connect to "Localhost 8545"
+    <img width="1440" alt="metamast_walkthrough_4_updated" src="https://user-images.githubusercontent.com/46409039/154831495-75fc76d5-e9ed-4713-bbd5-1be8969e251d.png">
 
 ###### Deploying to Local Testnet
 
 npx hardhat run scripts/deploy.js --network localhost
 
-###### Minting on Local Testnet
-
-npx hardhat run scripts/mint.js --network localhost
-
-###### Deploying to Testnet
+###### Deploying to Polygon Testnet
 
 **TODO**
 

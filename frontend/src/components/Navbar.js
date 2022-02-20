@@ -14,7 +14,7 @@ export default function ButtonAppBar() {
       <AppBar
         position="fixed"
         sx={{
-          backgroundColor: "rgba(0,0,0,0.69)",
+          backgroundColor: "rgba(0,0,0,0.75)",
           backgroundImage: "",
           backdropFilter: "blur(8px)",
         }}

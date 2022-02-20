@@ -47,7 +47,7 @@ function MintButton({ provider }) {
 
   return (
     <div>
-      <Button variant="outlined" onClick={mint}>
+      <Button variant="contained" onClick={mint}>
         Mint for 0.1 ETH
       </Button>
       {/* <p>Balance: {bal}</p> */}

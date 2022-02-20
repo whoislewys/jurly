@@ -39,6 +39,7 @@ function WalletButton({ provider, loadWeb3Modal, logoutOfWeb3Modal }) {
 
   return (
     <Button
+      variant='contained'
       onClick={() => {
         if (!provider) {
           loadWeb3Modal()

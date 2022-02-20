@@ -191,7 +191,7 @@ function Redeem({ digitalContractt, ownedTokenIds }) {
         <CardActions className={classes.cardActions}>
           <Button
               disabled={!formValid}
-              variant="outlined"
+              variant="contained"
               sx={{ marginTop: theme.spacing(2), width: "15%" }}
               onClick={burn}
           >Redeem</Button>

@@ -10,16 +10,21 @@ export default function ButtonAppBar() {
   const [provider, loadWeb3Modal, logoutOfWeb3Modal] = useWeb3Modal();
 
   return (
-    <Box backgroundColor='#000000'>
-      <AppBar position="static" sx={{ backgroundColor: "#000000", 
-        backgroundImage: ''
-        }}>
+    <Box backgroundColor="#000000">
+      <AppBar
+        position="fixed"
+        sx={{
+          backgroundColor: "rgba(0,0,0,0.69)",
+          backgroundImage: "",
+          backdropFilter: "blur(8px)",
+        }}
+      >
         <Box
           display="flex"
           flexDirection="column"
           alignSelf="center"
           alignItems="stretch"
-          width='75%'
+          width="75%"
         >
           <Toolbar
             sx={{
@@ -43,3 +48,4 @@ export default function ButtonAppBar() {
     </Box>
   );
 }
+

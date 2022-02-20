@@ -66,4 +66,12 @@ npm i
 npm run start
 ```
 
+###### Deploying
 
+Make sure to ask Luis to add you as an admin in project so you have ability to deploy
+
+```bash
+npm install -g firebase-tools
+firebase login
+firebase deploy
+```

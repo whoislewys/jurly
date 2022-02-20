@@ -19,7 +19,7 @@ const Footer = ({ provider }) => {
   return (
     <div className={classes.footer}>
       <Typography className={classes.name}>
-        © 2021 G3M
+        © 2022 G3M
       </Typography>
       {/* <Typography>
         <a src="https://twitter.com/g3mNFT">Twitter: @g3mNFT</a>

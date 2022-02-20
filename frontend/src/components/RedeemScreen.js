@@ -4,7 +4,6 @@ import Redeem from './Redeem';
 
 const useStyles = makeStyles((theme) => ({
   redeemScreen: {
-    height: "100vh",
     backgroundColor: "black"
   }
 }))

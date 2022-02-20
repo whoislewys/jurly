@@ -4,7 +4,6 @@ import Home from "../Home";
 
 const useStyles = makeStyles((theme) => ({
   homeScreen: {
-    height: "100vh",
     backgroundColor: "black"
   }
 }))

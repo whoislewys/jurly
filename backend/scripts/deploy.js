@@ -20,11 +20,10 @@ async function main() {
   )
   console.log('NFT phygital contract deployed to:', clippyPhygital.address)
 
-  // console.log('Deploying generic NFT')
-  // const genericNFTFactory = await hre.ethers.getContractFactory('GenericNFT')
-  // const genericNFT = await genericNFTFactory.deploy()
-  // await genericNFT.deployed()
-  // console.log('Generic NFT deployed to: ', genericNFT.address)
+  console.log('Setting digital whitelist mint addr to phygital address')
+
+  await clippyDigital.setWhitelistMintAddress(clippyPhygital.address);
+  console.log('Phygital address on Digital contract: ', await clippyDigital.clippyPhygitalAddress());
 }
 
 main()

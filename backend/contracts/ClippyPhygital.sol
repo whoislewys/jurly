@@ -4,6 +4,15 @@ import "@openzeppelin/contracts/utils/Counters.sol";
 import "@openzeppelin/contracts/access/Ownable.sol";
 import "./ClippyDigital.sol";
 
+/*
+            ____ _____ __  __ 
+           / ___|___ /|  \/  |
+          | |  _  |_ \| |\/| |
+          | |_| |___) | |  | |
+           \____|____/|_|  |_|
+                    
+*/
+
 contract ClippyPhygital is ERC721, Ownable {
   using Counters for Counters.Counter;
   using Strings for uint256;
@@ -40,12 +49,12 @@ contract ClippyPhygital is ERC721, Ownable {
   {
     require(msg.value >= 1e17, "0.1E required to mint");
     require(_tokenIds.current() <= 4200, "Only 4200 of this piece can be created");
+    // TODO: remove vulnerability where user cant mint 5, then transfer to another wallet, then mint 5 more
     require(balanceOf(msg.sender) <= 5, "You can only mint a max of 5 of this piece");
 
     _tokenIds.increment();
     uint256 newItemId = _tokenIds.current();
     _mint(recipient, newItemId);
-
     _setTokenURI(newItemId, uri);
 
     clippyDigital.mint(recipient, "digitalUri");

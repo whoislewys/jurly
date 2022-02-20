@@ -1,51 +1,59 @@
-import React from "react";
+import React from 'react'
 import {
   Card,
   CardContent,
   Typography,
   CardActions,
   Button,
-  makeStyles,
-} from "@material-ui/core";
-import StockJewelry from "../stock-jewelry.png"
+} from '@mui/material'
+import { makeStyles } from '@mui/styles'
+import StockJewelry from '../stock-jewelry.png'
 
 const useStyles = makeStyles((theme) => ({
   merchContainer: {
-    maxWidth: "30%",
-    minWidth: "230px",
-    height: "70%",
-    margin: "10px"
+    maxWidth: '30%',
+    minWidth: '230px',
+    height: '70%',
+    margin: '10px',
   },
   title: {
-    fontSize: 22
+    fontSize: 22,
   },
   description: {
-    fontSize:16
+    fontSize: 16,
   },
   image: {
-    width: "80%"
-  }
-}));
+    width: '80%',
+  },
+}))
 
 function MerchContainer() {
-const classes = useStyles();
+  const classes = useStyles()
 
   return (
-    <Card className={ classes.merchContainer } >
+    <Card className={classes.merchContainer}>
       <CardContent>
-        <Typography className={ classes.title } color="textSecondary" gutterBottom>
+        <Typography
+          className={classes.title}
+          color='textSecondary'
+          gutterBottom
+        >
           Jewelry Title
         </Typography>
-        <Typography className={ classes.description } color="textSecondary" gutterBottom>
+        <Typography
+          className={classes.description}
+          color='textSecondary'
+          gutterBottom
+        >
           Jewelry Description
         </Typography>
-        <img className={ classes.image } src={StockJewelry} />
+        <img className={classes.image} src={StockJewelry} />
       </CardContent>
       <CardActions>
-        <Button size="small">Buy Now</Button>
+        <Button size='small'>Buy Now</Button>
       </CardActions>
     </Card>
-  );
+  )
 }
 
-export default MerchContainer;
+export default MerchContainer

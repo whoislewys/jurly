@@ -47,6 +47,7 @@ const useStyles = makeStyles((theme) => ({
 const Mint = ({ provider }) => {
   const classes = useStyles();
   const isDesktop = useMediaQuery("(min-width:768px)");
+  console.log('[Mint] provider: ', provider)
 
   return (
     <div className={classes.redeemContainer}>

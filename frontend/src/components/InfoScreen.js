@@ -7,7 +7,7 @@ const InfoScreen = () => {
 
   const bulletPoint = (headerText, bodyText) => {
     return (
-      <Box display="flex" flexDirection="column" width="30%">
+      <Box display="flex" flexDirection="column" width="40%">
         <Typography sx={{ margin: theme.spacing(2), fontWeight: "600" }}>
           {headerText}
         </Typography>
@@ -32,7 +32,6 @@ const InfoScreen = () => {
         flexDirection: "column",
       }}
     >
-      {/* <Typography variant="h4">Welcome to G3M</Typography> */}
       <Box
         display="flex"
         flexDirection="row"
@@ -41,13 +40,13 @@ const InfoScreen = () => {
         justifyContent="center"
       >
         {bulletPoint(
-          "UNIQUE DESIGNS",
-          "We use 3D printing to bring you 100% unique & meaningful designs that traditional jewelers just can't create."
+          "TWO PART NFTS",
+          "Minting gives you 2 NFTs. One you can redeem for physical jewelry, while the other is a metaverse accessory and your ticket into the exclusive G3M Discord for women in tech."
         )}
 
         {bulletPoint(
-          "HIGH QUALITY MATERIALS",
-          "Each piece is Gold Vermeil finished so you can wear your buttery yellow, shimmering white, or elegant rose gold piece over and over again."
+          "RARE",
+          "There are only 4200 pieces to be minted for each drop. Get yours before they're gone."
         )}
 
         <Box display="flex" flexDirection="column" width="33%">
@@ -61,7 +60,7 @@ const InfoScreen = () => {
             }}
           >
             We donate 13.37% of all profits to a non-profit empowering diversity
-            in tech. Currently, donations go to Girls Who Code.
+            in tech. Currently, donations go to <a href='https://girlswhocode.com'>Girls Who Code.</a>
           </Typography>
         </Box>
       </Box>

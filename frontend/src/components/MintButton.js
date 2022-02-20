@@ -12,6 +12,7 @@ function MintButton({ provider }) {
   const [contract, setContract] = useState(null);
 
   useEffect(() => {
+    console.log('provider: ', provider);
     if (provider == null) {
       return;
     }
@@ -33,6 +34,9 @@ function MintButton({ provider }) {
   }, [provider]);
 
   const mint = async () => {
+    console.log('minting')
+    console.log('contract: ', contract)
+    console.log('signer: ', signer)
     if (contract == null || signer == null) {
       return;
     }

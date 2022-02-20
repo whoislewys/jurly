@@ -117,12 +117,12 @@ function Redeem({ digitalContractt, ownedTokenIds }) {
 
     return (
       <FormControl sx={{ width: "100%" }}>
-        <InputLabel id="demo-simple-select-label">NFT to Redeem</InputLabel>
+        <InputLabel id="demo-simple-select-label">NFT to Claim</InputLabel>
         <Select
           labelId="demo-simple-select-label"
           id="demo-simple-select"
           value={activeTokenId === -1 ? "" : activeTokenId}
-          label="NFT to Redeem"
+          label="NFT to Claim"
           onChange={(e) => setActiveTokenId(e.target.value)}
         >
           {ownedTokenIds.map((id) => {
@@ -140,6 +140,7 @@ function Redeem({ digitalContractt, ownedTokenIds }) {
   const burn = async () => {
     const burnTx = await digitalContractt.burn(activeTokenId);
     console.log("burntx: ", burnTx);
+    alert("Jewelry is on the way! Check e-mail for tracking number! :)");
   };
 
   const emailValid = () => {

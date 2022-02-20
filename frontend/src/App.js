@@ -98,9 +98,9 @@ function App() {
             }}
           />
         </Box>
-        <HomeScreen provider={provider} />
-        <MintScreen provider={provider} />
         <InfoScreen provider={provider} />
+        <MintScreen provider={provider} />
+        <HomeScreen provider={provider} />
         <RedeemScreen
           digitalContractt={digitalContractt}
           ownedTokenIds={ownedTokenIds}

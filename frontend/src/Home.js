@@ -26,7 +26,7 @@ const Home = () => {
   return (
     <Box
       sx={{
-        padding: `${theme.spacing(5)} 20% 0 20%`,
+        padding: `${theme.spacing(5)} 10% 0 10%`,
         display: "flex",
         flexDirection: "column",
       }}
@@ -48,21 +48,6 @@ const Home = () => {
           "HIGH QUALITY MATERIALS",
           "Each piece is Gold Vermeil finished so you can wear your buttery yellow, shimmering white, or elegant rose gold piece over and over again."
         )}
-
-        <Box display="flex" flexDirection="column" width="33%">
-          <Typography sx={{ margin: theme.spacing(2), fontWeight: "600" }}>
-            FOR A GOOD CAUSE
-          </Typography>
-          <Typography
-            sx={{
-              margin: theme.spacing(2),
-              height: "14rem",
-            }}
-          >
-            We donate 13.37% of all profits to a non-profit empowering diversity
-            in tech. Currently, donations go to Girls Who Code.
-          </Typography>
-        </Box>
       </Box>
     </Box>
   );

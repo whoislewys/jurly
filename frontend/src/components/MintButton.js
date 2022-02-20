@@ -1,3 +1,4 @@
+import {useTheme} from "@emotion/react";
 import Button from "@mui/material/Button";
 import { Contract, utils } from "ethers";
 import React, { useEffect, useState } from "react";
@@ -6,6 +7,7 @@ import ClippyPhygitalABI from "../ABIs/ClippyPhygital.json";
 // import GenericNFTAbi from '../ABIs/GenericNFT.json';
 
 function MintButton({ provider }) {
+  const theme = useTheme();
   const [signer, setSigner] = useState("");
   const [contract, setContract] = useState(null);
 

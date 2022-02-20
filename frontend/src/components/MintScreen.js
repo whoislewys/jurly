@@ -4,10 +4,9 @@ import Mint from "../components/Mint"
 
 const useStyles = makeStyles((theme) => ({
   mintScreen: {
-    height: "100vh",
-    // backgroundColor: "purple"
-    background: "rgb(188,36,255)",
-    background: "linear-gradient(90deg, rgba(188,36,255,1) 0%, rgba(0,255,100,1) 100%)",
+    // background: "rgb(188,36,255)",
+    // background: "linear-gradient(90deg, rgba(188,36,255,1) 0%, rgba(0,255,100,1) 100%)",
+    backgroundColor: 'black',
   }
 }))
 

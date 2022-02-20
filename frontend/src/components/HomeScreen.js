@@ -1,19 +1,19 @@
-import { makeStyles } from '@mui/styles'
+import { makeStyles } from "@mui/styles";
 import React from "react";
 import Home from "../Home";
 
 const useStyles = makeStyles((theme) => ({
   homeScreen: {
-    backgroundColor: "black"
-  }
-}))
+    backgroundColor: "black",
+  },
+}));
 
 const HomeScreen = ({ provider }) => {
-  const classes = useStyles()
+  const classes = useStyles();
 
   return (
-    <div className={ classes.homeScreen }>
-        <Home provider={provider} />
+    <div className={classes.homeScreen}>
+      <Home provider={provider} />
     </div>
   );
 };

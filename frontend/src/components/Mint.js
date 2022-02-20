@@ -13,8 +13,8 @@ import MintButton from "./MintButton";
 
 const useStyles = makeStyles((theme) => ({
   redeemContainer: {
-    width: '100%',
     height: '90vh',
+    width: '100%',
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',

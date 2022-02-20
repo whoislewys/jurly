@@ -38,10 +38,6 @@ To connect to this with Metamask, make sure your node is running. Then,
 
 npx hardhat run scripts/deploy.js --network localhost
 
-###### Minting on Local Testnet
-
-npx hardhat run scripts/mint.js --network localhost
-
 ###### Deploying to Polygon Testnet
 
 **TODO**

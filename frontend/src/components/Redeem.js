@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { useTheme } from "@emotion/react"
 import {
   Card,
@@ -85,15 +85,24 @@ function Redeem({ digitalContractt, ownedTokenIds }) {
   const classes = useStyles()
   const isDesktop = useMediaQuery('(min-width:768px)')
 
-  const [email, setEmail] = React.useState('')
-  const [address, setAddress] = React.useState('')
-  const [country, setCountry] = React.useState('us')
-  const [formValid, setFormValid] = React.useState(false)
-  const [activeTokenId, setActiveTokenId] = React.useState(-1)
+  const [email, setEmail] = useState('')
+  const [address, setAddress] = useState('')
+  const [country, setCountry] = useState('us')
+  const [formValid, setFormValid] = useState(false)
+  const [activeTokenId, setActiveTokenId] = useState(-1)
+
+  // checks form validity
+  useEffect(() => {
+    if (address.length > 0 && emailValid() && activeTokenId) {
+      setFormValid(true)
+    } else {
+      setFormValid(false)
+    }
+  }, [activeTokenId, address, email])
 
   const { ref: materialRef } = usePlacesWidget({
     apiKey: GOOGLE_API_KEY,
-    onPlaceSelected: (place) => console.log(place),
+    onPlaceSelected: (place) => setAddress(place.formatted_address),
     inputAutocompleteValue: 'country',
     options: {
       componentRestrictions: { country },
@@ -107,7 +116,7 @@ function Redeem({ digitalContractt, ownedTokenIds }) {
     }
 
     return (
-      <FormControl sx={{ marginTop: theme.spacing(2), width: "75%" }}>
+      <FormControl sx={{ width: "100%" }}>
         <InputLabel id="demo-simple-select-label">NFT to Redeem</InputLabel>
         <Select
           labelId="demo-simple-select-label"
@@ -133,25 +142,12 @@ function Redeem({ digitalContractt, ownedTokenIds }) {
     console.log("burntx: ", burnTx);
   };
 
-  const setFormvalid = () => {
-    if (address.length > 0 && emailValid()) {
-      setFormValid(true)
-    } else {
-      setFormValid(false)
-    }
-  }
-
   const emailValid = () => {
     return email
       .toLowerCase()
       .match(
         /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
       )
-  }
-
-  const handleEmailInput = (e) => {
-    setEmail(e.target.value)
-    setFormvalid()
   }
 
   return (
@@ -180,14 +176,8 @@ function Redeem({ digitalContractt, ownedTokenIds }) {
             label='Email'
             variant='outlined'
             value={email}
-            onChange={(e) => handleEmailInput(e)}
+            onChange={(e) => setEmail(e.target.value)}
           />
-
-
-
-          <Typography variant="h4" sx={{ marginTop: theme.spacing(2) }}>
-            Redeem
-          </Typography>
           <Box
             className={classes.textField}
           >
@@ -200,6 +190,7 @@ function Redeem({ digitalContractt, ownedTokenIds }) {
         </CardContent>
         <CardActions className={classes.cardActions}>
           <Button
+              disabled={!formValid}
               variant="outlined"
               sx={{ marginTop: theme.spacing(2), width: "15%" }}
               onClick={burn}

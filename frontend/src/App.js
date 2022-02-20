@@ -10,6 +10,7 @@ import Navbar from "./components/Navbar";
 import RedeemScreen from "./components/RedeemScreen";
 import useWeb3Modal from "./hooks/useWeb3Modal";
 import InfoScreen from "./components/InfoScreen";
+import Footer from "./components/Footer"
 
 function App() {
   const [balance, setBalance] = useState("");
@@ -104,6 +105,7 @@ function App() {
           digitalContractt={digitalContractt}
           ownedTokenIds={ownedTokenIds}
         />
+        <Footer/>
       </ThemeProvider>
     </div>
   );

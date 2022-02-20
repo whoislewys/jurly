@@ -9,6 +9,7 @@ import MintScreen from "./components/MintScreen";
 import Navbar from "./components/Navbar";
 import RedeemScreen from "./components/RedeemScreen";
 import useWeb3Modal from "./hooks/useWeb3Modal";
+import InfoScreen from "./components/InfoScreen";
 
 function App() {
   const [balance, setBalance] = useState("");
@@ -98,6 +99,7 @@ function App() {
         </Box>
         <HomeScreen provider={provider} />
         <MintScreen provider={provider} />
+        <InfoScreen provider={provider} />
         <RedeemScreen
           digitalContractt={digitalContractt}
           ownedTokenIds={ownedTokenIds}

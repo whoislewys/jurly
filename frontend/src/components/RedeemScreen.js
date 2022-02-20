@@ -6,7 +6,9 @@ const useStyles = makeStyles((theme) => ({
   redeemScreen: {
     backgroundColor: "black",
     height: "90vh",
-  },
+    background: "rgb(45,44,44)",
+    background: "radial-gradient(circle, rgba(25,25,25,1) 0%, rgba(0,0,0,1) 100%)"
+  }
 }));
 
 const RedeemScreen = ({ digitalContractt, ownedTokenIds }) => {

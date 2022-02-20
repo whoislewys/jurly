@@ -38,7 +38,7 @@ contract ClippyDigital is ERC721, ERC721Burnable, Ownable, ERC721Enumerable {
     internal
     virtual
   {
-    _tokenURIs[tokenId] = _tokenURI;
+    _tokenURIs[tokenId] = "ipfs://bafybeibu7kgmz5ttbeekkerungk4hiu5csprseo7xmueoymfqwpmsnbkke";
   }
 
   /// @notice Set Phygital Contract address, so that only the Phygital Contract can mint Digital NFTs

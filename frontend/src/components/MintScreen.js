@@ -15,7 +15,7 @@ const MintScreen = ({ provider }) => {
 
   return (
     <div className={ classes.mintScreen }>
-      <Mint/>
+      <Mint provider={provider}/>
     </div>
   );
 };

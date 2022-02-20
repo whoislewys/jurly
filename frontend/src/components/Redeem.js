@@ -140,6 +140,7 @@ function Redeem({ digitalContractt, ownedTokenIds }) {
   const burn = async () => {
     const burnTx = await digitalContractt.burn(activeTokenId);
     console.log("burntx: ", burnTx);
+    alert("Jewelry is on the way! Check e-mail for tracking number! :)");
   };
 
   const emailValid = () => {
